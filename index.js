@@ -1,7 +1,6 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const Employee=require("./lib/Employee");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -15,18 +14,34 @@ const render = require("./src/page-template.js");
 function createEngineer(team) {
     inquirer.prompt([
         // Engineer name
-        // Engineer id
-        // Engineer email
-        // Engineer GitHub username
         {
             type: 'input',
             name: 'name',
             message: "What is the engineer's name?",
+        },
+        // Engineer id
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the engineer's id?",
+        },
+        // Engineer email
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the engineer's email?",
+        }  ,      
+        // Engineer GitHub username
+        {
+            type: 'input',
+            name: 'githubUsername',
+            message: "What is the engineer's GitHub username?",
         }
+
     ]).then((engineerDetails) => {
         // Initialise Engineer class to create Manager object
-        // const engineer = new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.githubUsername)
-        // team.push(engineer);
+        const engineer = new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.githubUsername)
+        team.push(engineer);
         createTeam(team); // at this point we add an engineer to the team array
     });
 }
@@ -34,18 +49,35 @@ function createEngineer(team) {
 function createIntern(team) {
     inquirer.prompt([
         // Intern name
-        // Intern id
-        // Intern email
-        // Intern school
         {
             type: 'input',
             name: 'name',
             message: "What is the intern's name?",
+        },
+        // Intern id
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the intern's id?",
+        },
+        // Intern email
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the intern's email?",
+        } ,       
+        // Intern school
+        {
+            type: 'input',
+            name:'school',
+            message: "What is the intern's school?",
         }
+      
+        
     ]).then((internDetails) => {
         // Initialise Intern class to create Manager object
-        // const intern = new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school)
-        // team.push(intern);
+        const intern = new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school)
+        team.push(intern);
         createTeam(team); // at this point we add an intern to the team array
     });
 }
@@ -83,18 +115,34 @@ function createTeam(team) {
 function createManager(team) {
     inquirer.prompt([
         // Manager name
-        // Manager id
-        // Manager email
-        // Manager office number (phone number)
-        {
+         {
             type: 'input',
             name: 'name',
             message: "What is the team manager's name?",
+        },
+        // Manager id
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the team manager's id?",
+        },
+        // Manager email
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the team manager's email?",
+        },
+        // Manager office number (phone number)
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "What is the team manager's office number?",
         }
+       
     ]).then((managerDetails) => {
         // Initialise Manager class to create Manager object
-        // const manager = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.officeNumber)
-        // team.push(manager);
+        const manager = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.officeNumber)
+        team.push(manager);
         createTeam(team); // at this point, team array have a manager in it
         
     });
