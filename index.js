@@ -22,7 +22,7 @@ function createEngineer(team) {
         // Engineer id
         {
             type: 'input',
-            name: 'name',
+            name: 'id',
             message: "What is the engineer's id?",
         },
         // Engineer email
@@ -57,7 +57,7 @@ function createIntern(team) {
         // Intern id
         {
             type: 'input',
-            name: 'name',
+            name: 'id',
             message: "What is the intern's id?",
         },
         // Intern email
@@ -123,7 +123,7 @@ function createManager(team) {
         // Manager id
         {
             type: 'input',
-            name: 'name',
+            name: 'id',
             message: "What is the team manager's id?",
         },
         // Manager email
